@@ -31,3 +31,4 @@
   * Jalankan `composer install`
   * Jalankan `npm install` kemudian `npm run dev`
   * Jalankan `php artisan migrate`
+  * Buka `http://prainternki.llc`

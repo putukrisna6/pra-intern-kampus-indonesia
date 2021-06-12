@@ -69,7 +69,7 @@
                         <p style="text-align: center">OR</p>
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-3">
-                                {{-- <a href="{{ route('login.google.redirect') }}" class="btn btn-danger btn-block">Login with Google</a> --}}
+                                <a href="{{ route('login.google.redirect') }}" class="btn btn-danger btn-block">Login with Google</a>
                             </div>
                         </div>
                     </form>

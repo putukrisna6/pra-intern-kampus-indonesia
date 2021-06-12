@@ -1,0 +1,353 @@
+.def-look {
+    font-family: "Raleway", sans-serif;
+    color: #8d97ad;
+    font-weight: 400;
+    background: #AAABB8;
+    margin: 0;
+    display: block;
+}
+
+.bg-navbar {
+    background: #25274D;
+    background: -webkit-linear-gradient(legacy-direction(to right), #25274D 0%, #464866 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#25274D), to(#464866));
+    background: -webkit-linear-gradient(left, #25274D 0%, #464866 100%);
+    background: -o-linear-gradient(left, #25274D 0%, #464866 100%);
+    background: linear-gradient(to right, #25274D 0%, #464866 100%);
+}
+
+.bg-section {
+    background: #f8f9fa;
+    background: -webkit-linear-gradient(legacy-direction(to right), #f8f9fa 0%, #aaabb8 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#aaabb8));
+    background: -webkit-linear-gradient(left, #f8f9fa 0%, #aaabb8 100%);
+    background: -o-linear-gradient(left, #f8f9fa 0%, #aaabb8 100%);
+    background: linear-gradient(to right, #f8f9fa 0%, #aaabb8 100%);
+}
+
+.bg-sidebar {
+    background: #25274D;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 10rem auto;
+}
+
+.group-side-bar {
+    border-radius: 0.5em;
+    background: #25274D;
+}
+
+.emp-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 12em;
+    height: 12em;
+    object-fit: cover;
+    background: #464866;
+    border-radius: 50%;
+}
+
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #0062cc;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #0062cc;
+}
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}
+
+.card-img {
+    height: 12rem;
+    object-fit: cover;
+}
+
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+  /* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+  /* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+  /* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+  /* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+  /* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+.single_advisor_profile {
+    position: relative;
+    margin-bottom: 50px;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    z-index: 1;
+    border-radius: 15px;
+    -webkit-box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
+    box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
+}
+.single_advisor_profile .advisor_thumb {
+    position: relative;
+    z-index: 1;
+    border-radius: 15px 15px 0 0;
+    margin: 0 auto;
+    padding: 30px 30px 0 30px;
+    background-color: #464866;
+    overflow: hidden;
+}
+.single_advisor_profile .advisor_thumb::after {
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    position: absolute;
+    width: 150%;
+    height: 80px;
+    bottom: -45px;
+    left: -25%;
+    content: "";
+    background-color: #ffffff;
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+}
+@media only screen and (max-width: 575px) {
+    .single_advisor_profile .advisor_thumb::after {
+        height: 160px;
+         bottom: -90px;
+    }
+}
+.single_advisor_profile .advisor_thumb .social-info {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    bottom: 0;
+    right: 30px;
+    text-align: right;
+}
+.single_advisor_profile .advisor_thumb .social-info a {
+    font-size: 14px;
+    color: #020710;
+    padding: 0 5px;
+}
+.single_advisor_profile .advisor_thumb .social-info a:hover,
+.single_advisor_profile .advisor_thumb .social-info a:focus {
+    color: #3f43fd;
+}
+.single_advisor_profile .advisor_thumb .social-info a:last-child {
+    padding-right: 0;
+}
+.single_advisor_profile .single_advisor_details_info {
+    position: relative;
+    z-index: 1;
+    padding: 30px;
+    text-align: right;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    border-radius: 0 0 15px 15px;
+    background-color: #ffffff;
+}
+.single_advisor_profile .single_advisor_details_info::after {
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    position: absolute;
+    z-index: 1;
+    width: 50px;
+    height: 3px;
+    background-color: #3f43fd;
+    content: "";
+    top: 12px;
+    right: 30px;
+}
+.single_advisor_profile .single_advisor_details_info h6 {
+    margin-bottom: 0.25rem;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .single_advisor_profile .single_advisor_details_info h6 {
+        font-size: 14px;
+    }
+}
+.single_advisor_profile .single_advisor_details_info p {
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .single_advisor_profile .single_advisor_details_info p {
+        font-size: 12px;
+    }
+}
+.single_advisor_profile:hover .advisor_thumb::after,
+.single_advisor_profile:focus .advisor_thumb::after {
+    background-color: #070a57;
+}
+.single_advisor_profile:hover .advisor_thumb .social-info a,
+.single_advisor_profile:focus .advisor_thumb .social-info a {
+    color: #ffffff;
+}
+.single_advisor_profile:hover .advisor_thumb .social-info a:hover,
+.single_advisor_profile:hover .advisor_thumb .social-info a:focus,
+.single_advisor_profile:focus .advisor_thumb .social-info a:hover,
+.single_advisor_profile:focus .advisor_thumb .social-info a:focus {
+    color: #ffffff;
+}
+.single_advisor_profile:hover .single_advisor_details_info,
+.single_advisor_profile:focus .single_advisor_details_info {
+    background-color: #070a57;
+}
+.single_advisor_profile:hover .single_advisor_details_info::after,
+.single_advisor_profile:focus .single_advisor_details_info::after {
+    background-color: #ffffff;
+}
+.single_advisor_profile:hover .single_advisor_details_info h6,
+.single_advisor_profile:focus .single_advisor_details_info h6 {
+    color: #ffffff;
+}
+.single_advisor_profile:hover .single_advisor_details_info p,
+.single_advisor_profile:focus .single_advisor_details_info p {
+    color: #ffffff;
+}
+
+@media (max-width: 1024px) {
+    .hide-details {
+        display: none;
+    }
+}
+
+#myInput {
+    padding: 20px;
+    margin-top: -6px;
+    border: 0;
+    border-radius: 0;
+    background: #f1f1f1;
+}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Core\Application\Usecases\CreateUserFromSocialite;
+use App\Http\Controllers\ChangePasswordController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -32,3 +33,7 @@ Route::get('/login/google/callback', function() {
     (new CreateUserFromSocialite)->execute($user);
     return redirect()->route('home');
 });
+
+
+Route::get('/change-password', [ChangePasswordController::class, 'index']);
+Route::post('change-password', [ChangePasswordController::class, 'store'])->name('change.password');

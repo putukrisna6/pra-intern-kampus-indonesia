@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class ProvinsiController extends Controller
+class JurusanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class ProvinsiController extends Controller
      */
     public function index()
     {
-        $provinsi = DB::table('provinsis')->selectRaw("nama_provinsi")->get();
-
-        return view('pendataan.provinsi.index', compact('provinsi'));
+        //
     }
 
     /**

@@ -47,8 +47,8 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a href="/change-password" class="dropdown-item">Change Password</a>
-                            <a href="" class="dropdown-item">Pendataan Kampus</a>
+                            <a href="{{ url('/change-password') }}" class="dropdown-item">Change Password</a>
+                            <a href="{{ route('pendataan') }}" class="dropdown-item">Pendataan Kampus</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

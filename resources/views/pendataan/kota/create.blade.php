@@ -9,18 +9,18 @@
         @csrf
         <div class="form-group">
             <label class="font-tipis">Provinsi</label>
-                <select required=""
-                    oninvalid="this.setCustomValidity('Provinsi Wajib Dipilih')"
-                    oninput="setCustomValidity('')"
-                    {{-- onchange="getKelurahan(this)" --}}
-                    class="form-control select2"
-                    id="id_provinsi"
-                    name="id_provinsi">
-                    <option value=""></option>
-                    @foreach ($provinsis as $p)
-                        <option value="{{$p->id}}">{{$p->nama_provinsi}}</option>
-                    @endforeach
-                </select>
+            <select required=""
+                oninvalid="this.setCustomValidity('Provinsi Wajib Dipilih')"
+                oninput="setCustomValidity('')"
+                {{-- onchange="getKelurahan(this)" --}}
+                class="form-control select2"
+                id="id_provinsi"
+                name="id_provinsi">
+                <option value=""></option>
+                @foreach ($provinsis as $p)
+                    <option value="{{$p->id}}">{{$p->nama_provinsi}}</option>
+                @endforeach
+            </select>
 
             <label for="nama_kota" class="">Nama Kota/Kabupaten</label>
             <input id="nama_kota"

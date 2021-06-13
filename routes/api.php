@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FormInfoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::get('/kelurahan/{id_kecamatan}', [ApiTestController::class, 'getKelurahan'])->name('get.kelurahan');
+
+Route::get('/kota/{id_provinsi}', [FormInfoController::class, 'getKotaKabupaten'])->name('get.kotakabupaten');

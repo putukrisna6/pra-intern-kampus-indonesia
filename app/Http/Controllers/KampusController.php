@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Core\Application\Usecases\GetAllKotaKabupaten;
+use App\Core\Application\Usecases\GetAllProvinsi;
+use App\Models\Kampus;
 use Illuminate\Http\Request;
 
 class KampusController extends Controller
@@ -23,7 +26,9 @@ class KampusController extends Controller
      */
     public function create()
     {
-        //
+        $data['provinsis'] = (new GetAllProvinsi)->execute();
+        // $data['kotas'] = (new GetAllKotaKabupaten)->execute();
+        return view('pendataan.kampus.create', $data);
     }
 
     /**
@@ -34,7 +39,15 @@ class KampusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'nama_kampus' => 'required',
+            'jenis_kampus' => 'required',
+            'id_kota' => 'required',
+        ]);
+
+        Kampus::create($data);
+
+        return redirect('/pendataan/kampus/index');
     }
 
     /**

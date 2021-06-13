@@ -1,0 +1,78 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <h1>Tambah Kampus</h1>
+    </div>
+    <form method="post" action="/pendataan/kampus" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+            <label class="">Provinsi</label>
+            <select required=""
+                oninvalid="this.setCustomValidity('Provinsi Wajib Dipilih')"
+                oninput="setCustomValidity('')"
+                onchange="getKotaKabupaten(this)"
+                class="form-control select2"
+                id="id_provinsi"
+                name="id_provinsi">
+                <option value=""></option>
+                @foreach ($provinsis as $p)
+                    <option value="{{$p->id}}">{{$p->nama_provinsi}}</option>
+                @endforeach
+            </select>
+
+            <label class="">Kota/Kabupaten</label>
+            <select
+                required=""
+                oninvalid="this.setCustomValidity('Kota/Kabupaten Wajib Dipilih'')"
+                oninput="setCustomValidity('')"
+                class="form-control select2"
+                id="id_kota"
+                name="id_kota"
+                disabled>
+            </select>
+
+            <label for="jenis_kampus">Jenis Kampus</label>
+            <select required
+                oninvalid="this.setCustomValidity('Jenis Kampus Wajib Dipilih')"
+                oninput="setCustomValidity('')"
+                class="form-control select2"
+                id="jenis_kampus"
+                name="jenis_kampus">
+                <option value=""></option>
+                <option value="Negeri">Negeri</option>
+                <option value="Swasta">Swasta</option>
+            </select>
+
+            <label for="nama_kampus" class="">Nama Kampus</label>
+            <input id="nama_kampus"
+                    type="text"
+                    class="form-control @error('nama_kampus') is-invalid @enderror"
+                    name="nama_kampus"
+                    value="{{ old('nama_kampus') }}"
+                    autofocus>
+            @error('nama_kampus')
+                <strong>{{ $message }}</strong>
+            @enderror
+        </div>
+        <button class="btn btn-primary">Create</button>
+    </form>
+</div>
+
+<script>
+    function getKotaKabupaten(provinsi){
+        $('#id_kota').prop('disabled', true);
+        $('#id_kota').empty();
+        id_provinsi = provinsi[provinsi.selectedIndex].value;
+
+        url = "{{ env('APP_URL') }}" + "/api/kota/" + id_provinsi;
+        $.get(url, function(data){
+            $.each(data, function(index, kota){
+                $('#id_kota').append('<option value="'+kota.id+'">'+kota.nama_kota+'</option>');
+            });
+            $('#id_kota').prop('disabled', false);
+        });
+    }
+</script>
+@endsection

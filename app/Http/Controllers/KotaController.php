@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Core\Application\Usecases\GetAllProvinsi;
+use App\Models\Kota;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KotaController extends Controller
 {
@@ -23,7 +26,8 @@ class KotaController extends Controller
      */
     public function create()
     {
-        //
+        $data['provinsis'] = (new GetAllProvinsi)->execute();
+        return view('pendataan.kota.create', $data);
     }
 
     /**
@@ -34,7 +38,14 @@ class KotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'nama_kota' => 'required',
+            'id_provinsi' => 'required',
+        ]);
+
+        Kota::create($data);
+
+        return redirect('/pendataan/kota/index');
     }
 
     /**

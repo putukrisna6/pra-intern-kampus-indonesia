@@ -13,7 +13,7 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        //
+        return view('pendataan.jurusan.index');
     }
 
     /**

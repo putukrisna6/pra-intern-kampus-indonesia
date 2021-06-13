@@ -19,11 +19,11 @@
               </tr>
             </thead>
             <tbody>
-                @foreach ($provinsi as $index => $value)
+                @foreach ($provinsi as $index => $p)
                     <tr>
-                        <th scope="row">{{ $index }}</th>
-                        <td>{{ $value }}</td>
-                        <td>0</td>
+                        <th scope="row">{{ $index + 1 }}</th>
+                        <td>{{ $p->nama_provinsi }}</td>
+                        <td>{{ $p->jumlah_kota }}</td>
                     </tr>
                 @endforeach
             </tbody>

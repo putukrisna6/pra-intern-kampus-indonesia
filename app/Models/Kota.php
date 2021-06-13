@@ -9,6 +9,9 @@ class Kota extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nama_kota', 'id_provinsi'];
+    public $timestamps = false;
+
     public function provinsi() {
         return $this->belongsTo(Provinsi::class);
     }

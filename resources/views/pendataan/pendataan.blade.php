@@ -41,7 +41,7 @@
                   <div class="card-body">
                     <h5 class="card-title">Pendataan Jurusan</h5>
                     <p class="card-text">Lakukan pendataan untuk jurusuan</p>
-                    <a href="{{ url('#') }}" class="btn btn-primary">Tambah data</a>
+                    <a href="{{ url('pendataan/jurusan/index') }}" class="btn btn-primary">Tambah data</a>
                   </div>
                 </div>
             </div>

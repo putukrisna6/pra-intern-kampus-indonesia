@@ -9,6 +9,9 @@ class Provinsi extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nama_provinsi'];
+    public $timestamps = false;
+
     public function kotas() {
         return $this->hasMany(Kota::class);
     }

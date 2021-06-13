@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Provinsi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +15,11 @@ class ProvinsiController extends Controller
      */
     public function index()
     {
-        $provinsi = DB::table('provinsis')->selectRaw("nama_provinsi")->get();
+        $provinsi = DB::table('provinsis')
+                ->selectRaw("nama_provinsi, count(kotas.id_provinsi) AS jumlah_kota")
+                ->leftJoin('kotas', 'kotas.id_provinsi', 'provinsis.id')
+                ->groupBy('nama_provinsi')
+                ->get();
 
         return view('pendataan.provinsi.index', compact('provinsi'));
     }
@@ -26,7 +31,7 @@ class ProvinsiController extends Controller
      */
     public function create()
     {
-        //
+        return view('pendataan.provinsi.create');
     }
 
     /**
@@ -37,7 +42,12 @@ class ProvinsiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'nama_provinsi' => 'required',
+        ]);
+
+        Provinsi::create($data);
+        return redirect('/pendataan/provinsi/index');
     }
 
     /**

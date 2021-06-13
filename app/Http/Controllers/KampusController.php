@@ -16,7 +16,8 @@ class KampusController extends Controller
      */
     public function index()
     {
-        return view('pendataan.kampus.index');
+        $data['provinsis'] = (new GetAllProvinsi)->execute();
+        return view('pendataan.kampus.index', $data);
     }
 
     /**
@@ -27,7 +28,6 @@ class KampusController extends Controller
     public function create()
     {
         $data['provinsis'] = (new GetAllProvinsi)->execute();
-        // $data['kotas'] = (new GetAllKotaKabupaten)->execute();
         return view('pendataan.kampus.create', $data);
     }
 

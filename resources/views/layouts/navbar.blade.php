@@ -15,7 +15,7 @@
                     <a href="{{ url('/') }}" class="nav-link">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Beasiswa</a>
+                    <a href="{{ route('beasiswa') }}" class="nav-link">Beasiswa</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Blog</a>
@@ -47,8 +47,9 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a href="{{ url('/change-password') }}" class="dropdown-item">Change Password</a>
+                            <a href="{{ url('/home') }}" class="dropdown-item">Home</a>
                             <a href="{{ route('pendataan') }}" class="dropdown-item">Pendataan Kampus</a>
+                            <a href="{{ url('/change-password') }}" class="dropdown-item">Change Password</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

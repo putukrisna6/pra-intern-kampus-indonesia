@@ -64,7 +64,7 @@
         url = "{{ env('APP_URL') }}" + "/api/kampus/" + id_kota;
         $.get(url, function(data){
             $.each(data, function(index, kampus){
-                $('#id_kampus').append('<tr><th scope="row">'+kampus.id+'</th><td>'+kampus.nama_kampus+'</td><td>'+kampus.jenis_kampus+'</td><td><a href="/pendataan/kampus/show/'+kampus.id+'" class="btn btn-info text-white">Lihat Kampus</a></td></tr>');
+                $('#id_kampus').append('<tr><th scope="row">'+kampus.id+'</th><td>'+kampus.nama_kampus+'</td><td>'+kampus.jenis_kampus+'</td><td><a href="/pendataan/kampus/show/'+kampus.id+'" class="btn btn-info text-white mr-3">Lihat</a><a href="/pendataan/kampus/edit/'+kampus.id+'" class="btn btn-warning mr-3">Ubah</a><a href="/pendataan/kampus/delete/'+kampus.id+'" class="btn btn-danger">Hapus</a></td></tr>');
             });
         });
     }
@@ -77,7 +77,7 @@
         url = "{{ env('APP_URL') }}" + "/api/kampus/provinsi/" + id_provinsi;
         $.get(url, function(data){
             $.each(data, function(index, kampus){
-                $('#id_kampus').append('<tr><th scope="row">'+kampus.id+'</th><td>'+kampus.nama_kampus+'</td><td>'+kampus.jenis_kampus+'</td><td><a href="/pendataan/kampus/show/'+kampus.id+'" class="btn btn-info text-white">Lihat Kampus</a></td></tr>');
+                $('#id_kampus').append('<tr><th scope="row">'+kampus.id+'</th><td>'+kampus.nama_kampus+'</td><td>'+kampus.jenis_kampus+'</td><td><a href="/pendataan/kampus/show/'+kampus.id+'" class="btn btn-info text-white mr-3">Lihat</a><a href="/pendataan/kampus/edit/'+kampus.id+'" class="btn btn-warning mr-3">Ubah</a><a href="/pendataan/kampus/delete/'+kampus.id+'" class="btn btn-danger">Hapus</a></td></tr>');
             });
         });
     }

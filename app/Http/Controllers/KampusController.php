@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Core\Application\Usecases\GetAllKotaKabupaten;
 use App\Core\Application\Usecases\GetAllProvinsi;
 use App\Models\Kampus;
 use Illuminate\Http\Request;
@@ -16,6 +15,7 @@ class KampusController extends Controller
      */
     public function index()
     {
+
         $data['provinsis'] = (new GetAllProvinsi)->execute();
         return view('pendataan.kampus.index', $data);
     }

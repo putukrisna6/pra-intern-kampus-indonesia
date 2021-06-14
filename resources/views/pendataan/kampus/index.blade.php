@@ -14,7 +14,7 @@
         <select required=""
             oninvalid="this.setCustomValidity('Provinsi Wajib Dipilih')"
             oninput="setCustomValidity('')"
-            onchange="getKotaKabupaten(this)"
+            onchange="getKotaKabupaten(this); getKampusByProvinsi(this);"
             class="form-control select2"
             id="id_provinsi"
             name="id_provinsi">
@@ -57,11 +57,24 @@
 
 @include('pendataan.scripts.get_kota_kabupaten');
 <script>
-    function getKampus(kota){
+    function getKampus(kota) {
         $('#id_kampus').empty();
         id_kota = kota[kota.selectedIndex].value;
 
         url = "{{ env('APP_URL') }}" + "/api/kampus/" + id_kota;
+        $.get(url, function(data){
+            $.each(data, function(index, kampus){
+                $('#id_kampus').append('<tr><th scope="row">'+kampus.id+'</th><td>'+kampus.nama_kampus+'</td><td>'+kampus.jenis_kampus+'</td><td><a href="/pendataan/jurusan/'+kampus.id+'" class="btn btn-info text-white">Tambah Jurusan</a></td></tr>');
+            });
+        });
+    }
+</script>
+<script>
+    function getKampusByProvinsi(provinsi) {
+        $('#id_kampus').empty();
+        id_provinsi = provinsi[provinsi.selectedIndex].value;
+
+        url = "{{ env('APP_URL') }}" + "/api/kampus/provinsi/" + id_provinsi;
         $.get(url, function(data){
             $.each(data, function(index, kampus){
                 $('#id_kampus').append('<tr><th scope="row">'+kampus.id+'</th><td>'+kampus.nama_kampus+'</td><td>'+kampus.jenis_kampus+'</td><td><a href="/pendataan/jurusan/'+kampus.id+'" class="btn btn-info text-white">Tambah Jurusan</a></td></tr>');

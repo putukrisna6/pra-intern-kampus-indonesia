@@ -22,3 +22,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/kota/{id_provinsi}', [FormInfoController::class, 'getKotaKabupaten'])->name('get.kotakabupaten');
 Route::get('/kampus/{id_kota}', [FormInfoController::class, 'getKampus'])->name('get.kampus');
+Route::get('/kampus/provinsi/{id_provinsi}', [FormInfoController::class, 'getKampusByProvinsi'])->name('get.kampus.provinsi');

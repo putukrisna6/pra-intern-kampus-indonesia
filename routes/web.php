@@ -2,6 +2,7 @@
 
 use App\Core\Application\Usecases\CreateUserFromSocialite;
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\FakultasController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\KampusController;
 use App\Http\Controllers\KotaController;
@@ -59,11 +60,17 @@ Route::prefix('pendataan')->group(function() {
         Route::get('/index', [KampusController::class, 'index']);
         Route::get('/create', [KampusController::class, 'create']);
         Route::post('/', [KampusController::class, 'store']);
+        Route::get('/show/{kampus}', [KampusController::class, 'show']);
+    });
+
+    Route::prefix('fakultas')->group(function() {
+        Route::get('/create/{kampus}', [FakultasController::class, 'create']);
+        Route::post('/', [FakultasController::class, 'store']);
     });
 
     Route::prefix('jurusan')->group(function() {
         Route::get('/index', [JurusanController::class, 'index']);
-        Route::get('/create', [JurusanController::class, 'create']);
+        Route::get('/create/{kampus}', [JurusanController::class, 'create']);
         Route::post('/', [JurusanController::class, 'store']);
     });
 });

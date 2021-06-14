@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fakultas;
 use Illuminate\Http\Request;
 
 class FakultasController extends Controller
@@ -21,9 +22,9 @@ class FakultasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id_kampus)
     {
-        //
+        return view('pendataan.fakultas.create', compact('id_kampus'));
     }
 
     /**
@@ -34,7 +35,13 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'nama_fakultas' => 'required',
+            'id_kampus' => 'required',
+        ]);
+
+        Fakultas::create($data);
+        return redirect('pendataan/kampus/show/' . $data['id_kampus']);
     }
 
     /**

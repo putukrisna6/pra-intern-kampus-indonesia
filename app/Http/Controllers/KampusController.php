@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Core\Application\Usecases\GetAllProvinsi;
+use App\Core\Application\Usecases\ViewFakultasJurusan;
 use App\Models\Kampus;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,6 @@ class KampusController extends Controller
      */
     public function index()
     {
-
         $data['provinsis'] = (new GetAllProvinsi)->execute();
         return view('pendataan.kampus.index', $data);
     }
@@ -44,7 +44,6 @@ class KampusController extends Controller
             'jenis_kampus' => 'required',
             'id_kota' => 'required',
         ]);
-
         Kampus::create($data);
 
         return redirect('/pendataan/kampus/index');
@@ -58,7 +57,9 @@ class KampusController extends Controller
      */
     public function show($id)
     {
-        //
+        $kampus = Kampus::where('id', $id)->first();
+        $fakultas = (new ViewFakultasJurusan)->execute($kampus->id);
+        return view('pendataan.kampus.show', compact('kampus', 'fakultas'));
     }
 
     /**

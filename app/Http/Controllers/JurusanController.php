@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Core\Application\Usecases\GetFakultasbyKampus;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
 class JurusanController extends Controller
@@ -21,9 +23,10 @@ class JurusanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id_kampus)
     {
-        //
+        $data['fakultas'] = (new GetFakultasbyKampus)->execute($id_kampus);
+        return view('pendataan.jurusan.create', $data, compact('id_kampus'));
     }
 
     /**
@@ -34,7 +37,14 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id_kampus = $request->id_kampus;
+        $data = request()->validate([
+            'nama_jurusan' => 'required',
+            'id_fakultas' => 'required',
+            'kuota' => 'required',
+        ]);
+        Jurusan::create($data);
+        return redirect('pendataan/kampus/show/' . $id_kampus);
     }
 
     /**

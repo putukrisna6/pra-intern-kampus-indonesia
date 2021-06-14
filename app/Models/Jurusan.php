@@ -9,6 +9,9 @@ class Jurusan extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nama_jurusan', 'id_fakultas', 'kuota'];
+    public $timestamps = false;
+
     public function fakultas() {
         return $this->belongsTo(Fakultas::class);
     }

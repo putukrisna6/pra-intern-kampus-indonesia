@@ -13,9 +13,12 @@
                     <div class="card mb-3">
                         <img class="card-img-top" style="height: 5em; object-fit: cover;" src="{{ asset('image/placeholder-image-card.webp') }}" alt="Card image cap">
                         <div class="card-body">
-                        <h5 class="card-title">{{ $b->nama_beasiswa }}</h5>
-                        <p class="card-text">{{ $b->deskripsi_beasiswa }}</p>
-                        <p class="card-text"><small class="text-muted">{{  date('D, d M Y', strtotime($b->updated_at)) }}</small></p>
+                            <h5 class="card-title">{{ $b->nama_beasiswa }}</h5>
+                            <p class="text-muted">{{ $b->penyelenggara_beasiswa }}</p>
+                            <p class="card-text">{{ $b->deskripsi_beasiswa }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text"><small class="text-muted">{{  date('D, d M Y', strtotime($b->updated_at)) }}</small></p>
                         </div>
                     </div>
                 </div>

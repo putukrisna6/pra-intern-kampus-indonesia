@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Core\Application\Usecases\GetFakultasbyKampus;
+use App\Models\Fakultas;
 use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
 class JurusanController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -64,9 +69,13 @@ class JurusanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Jurusan $jurusan)
     {
-        //
+        $fakultas = Fakultas::where('id', $jurusan->id_fakultas)->select('id_kampus')->first();
+        $id_kampus = $fakultas->id_kampus;
+
+        $data['fakultas'] = (new GetFakultasbyKampus)->execute($id_kampus);
+        return view('pendataan.jurusan.edit', compact('jurusan', 'id_kampus'), $data);
     }
 
     /**
@@ -78,7 +87,14 @@ class JurusanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $id_kampus = $request->id_kampus;
+        $data = request()->validate([
+            'nama_jurusan' => 'required',
+            'id_fakultas' => 'required',
+            'kuota' => 'required',
+        ]);
+        Jurusan::find($id)->update($data);
+        return redirect('pendataan/kampus/show/' . $id_kampus);
     }
 
     /**
@@ -87,8 +103,13 @@ class JurusanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Jurusan $jurusan)
     {
-        //
+        $fakultas = Fakultas::where('id', $jurusan->id_fakultas)->select('id_kampus')->first();
+        $id_kampus = $fakultas->id_kampus;
+
+        $jurusan->delete();
+
+        return redirect('pendataan/kampus/show/' . $id_kampus);
     }
 }

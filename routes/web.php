@@ -85,12 +85,11 @@ Route::prefix('pendataan')->group(function() {
     });
 
     Route::prefix('jurusan')->group(function() {
-        Route::get('/index', [JurusanController::class, 'index']);
         Route::get('/create/{kampus}', [JurusanController::class, 'create']);
         Route::post('/', [JurusanController::class, 'store']);
         Route::get('/edit/{jurusan}', [JurusanController::class, 'edit']);
         Route::patch('/{jurusan}', [JurusanController::class, 'update']);
-        Route::get('/delete/{jurusan}', [JurusanController::class, 'destroy']);
+        Route::delete('/delete/{jurusan}', [JurusanController::class, 'destroy']);
     });
 });
 

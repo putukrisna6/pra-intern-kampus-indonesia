@@ -31,4 +31,5 @@
   * Jalankan `composer install`
   * Jalankan `npm install` kemudian `npm run dev`
   * Jalankan `php artisan migrate`
+  * Jalankan `php artisan db:seed --class=ProvinsiSeeder` jika ingin beberapa Provinsi sudah di-seed
   * Buka `http://prainternki.llc`

@@ -20,11 +20,11 @@
             <tbody>
                 @foreach ($fakultas as $fakul)
                     <tr>
-                        <td rowspan="{{ count($fakul->jurusan)+1 }}">{{ $fakul->nama_fakultas }}</td>
+                        <td rowspan="{{ count($fakul->jurusan)+1 }}"><a href="/pendataan/fakultas/edit/{{ $fakul->id }}">{{ $fakul->nama_fakultas }}</a></td>
                     </tr>
                     @foreach ($fakul->jurusan as $j)
                     <tr>
-                        <td>{{ $j->nama_jurusan }}</td>
+                        <td><a href="/pendataan/jurusan/edit/{{ $j->id }}">{{ $j->nama_jurusan }}</a></td>
                     </tr>
                     @endforeach
                 @endforeach

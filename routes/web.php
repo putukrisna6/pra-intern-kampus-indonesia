@@ -73,7 +73,7 @@ Route::prefix('pendataan')->group(function() {
         Route::get('/show/{kampus}', [KampusController::class, 'show']);
         Route::get('/edit/{kampus}', [KampusController::class, 'edit']);
         Route::patch('/{kampus}', [KampusController::class, 'update']);
-        Route::delete('/delete/{kampus}', [KampusController::class, 'destroy']);
+        Route::get('/delete/{kampus}', [KampusController::class, 'destroy']);
     });
 
     Route::prefix('fakultas')->group(function() {
@@ -90,7 +90,7 @@ Route::prefix('pendataan')->group(function() {
         Route::post('/', [JurusanController::class, 'store']);
         Route::get('/edit/{jurusan}', [JurusanController::class, 'edit']);
         Route::patch('/{jurusan}', [JurusanController::class, 'update']);
-        Route::delete('/delete/{jurusan}', [JurusanController::class, 'destroy']);
+        Route::get('/delete/{jurusan}', [JurusanController::class, 'destroy']);
     });
 });
 

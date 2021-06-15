@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fakultas;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
 class FakultasController extends Controller
@@ -61,9 +62,9 @@ class FakultasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Fakultas $fakultas)
     {
-        //
+        return view('pendataan.fakultas.edit', compact('fakultas'));
     }
 
     /**
@@ -75,7 +76,12 @@ class FakultasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = request()->validate([
+            'nama_fakultas' => 'required',
+            'id_kampus' => 'required',
+        ]);
+        Fakultas::find($id)->update($data);
+        return redirect('pendataan/kampus/show/' . $data['id_kampus']);
     }
 
     /**
@@ -84,8 +90,11 @@ class FakultasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Fakultas $fakultas)
     {
-        //
+        $id_kampus = $fakultas->id_kampus;
+        Jurusan::where('id_fakultas', $fakultas->id)->delete();
+        $fakultas->delete();
+        return redirect('pendataan/kampus/show/' . $id_kampus);
     }
 }

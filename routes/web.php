@@ -46,7 +46,7 @@ Route::get('/login/google/callback', function() {
 });
 
 Route::prefix('beasiswa')->group(function() {
-    Route::get('/index', [BeasiswaController::class, 'index']);
+    Route::get('/index', [BeasiswaController::class, 'index'])->name('beasiswa.index');
     Route::get('/create', [BeasiswaController::class, 'create']);
     Route::post('/', [BeasiswaController::class, 'store']);
 });

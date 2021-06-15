@@ -24,7 +24,7 @@
             </div>
             <div class="card-body">
                 <p class="text-body">Lakukan pendataan beasiswa.</p>
-                <a href="{{ url('#') }}" class="btn btn-primary">Go</a>
+                <a href="{{ route('beasiswa.index') }}" class="btn btn-primary">Go</a>
             </div>
         </div>
     </div>

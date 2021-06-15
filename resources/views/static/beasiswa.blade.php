@@ -8,26 +8,18 @@
     <hr>
     <div class="jumbotron">
         <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <div class="card mb-3">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            @foreach ($beasiswas as $b)
+                <div class="col-lg-12">
+                    <div class="card mb-3">
+                        <img class="card-img-top" style="height: 5em; object-fit: cover;" src="{{ asset('image/placeholder-image-card.webp') }}" alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ $b->nama_beasiswa }}</h5>
+                        <p class="card-text">{{ $b->deskripsi_beasiswa }}</p>
+                        <p class="card-text"><small class="text-muted">{{  date('D, d M Y', strtotime($b->updated_at)) }}</small></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="card mb-3">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

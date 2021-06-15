@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Beasiswa;
 use Illuminate\Http\Request;
 
 class BeasiswaController extends Controller
@@ -16,7 +17,9 @@ class BeasiswaController extends Controller
      */
     public function index()
     {
-        //
+        $beasiswas = Beasiswa::get();
+
+        return view('beasiswa.index', compact('beasiswas'));
     }
 
     /**
@@ -26,7 +29,7 @@ class BeasiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('beasiswa.create');
     }
 
     /**
@@ -37,7 +40,14 @@ class BeasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'nama_beasiswa' => 'required',
+            'penyelenggara_beasiswa' => 'required',
+            'deskripsi_beasiswa' => 'required',
+        ]);
+
+        Beasiswa::create($data);
+        return redirect('/beasiswa/index');
     }
 
     /**

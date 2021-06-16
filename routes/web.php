@@ -8,6 +8,7 @@ use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\KampusController;
 use App\Http\Controllers\KotaController;
 use App\Http\Controllers\PendataanController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProvinsiController;
 use App\Http\Controllers\StaticController;
 use App\Models\Kota;
@@ -96,3 +97,6 @@ Route::prefix('pendataan')->group(function() {
 
 Route::get('/change-password', [ChangePasswordController::class, 'index']);
 Route::post('change-password', [ChangePasswordController::class, 'store'])->name('change.password');
+
+Route::get('/blog', [PostController::class, 'index'])->name('blog');
+Route::get('/post/{slug}', [PostController::class, 'view'])->name('blog.view');

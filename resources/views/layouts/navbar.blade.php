@@ -18,7 +18,7 @@
                     <a href="{{ route('beasiswa') }}" class="nav-link">Beasiswa</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Blog</a>
+                    <a href="{{ route('blog') }}" class="nav-link">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Info Magang</a>

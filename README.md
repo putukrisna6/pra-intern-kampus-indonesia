@@ -26,6 +26,19 @@
     * Secara default, project ini terhubung dengan DB `pra_intern_ki`
     * Silakan buat DB dengan nama tersebut
     * ATAU buat DB dengan nama lain dan mengubah koneksi DB pada file `.env`
+  * Setup mailing untuk reset password
+    * Project Laravel ini menggunakan `https://mailtrap.io/` untuk testing mailing
+    * Silakan configurasi mailing di `.env`
+    <pre>
+    MAIL_MAILER=smtp
+    MAIL_HOST=smtp.mailtrap.io
+    MAIL_PORT=2525
+    MAIL_USERNAME=703c8476bf88eb
+    MAIL_PASSWORD=bc07f6e91e684b
+    MAIL_ENCRYPTION=tls
+    MAIL_FROM_ADDRESS="noreply@kampusindonesia.co.id"
+    MAIL_FROM_NAME="${APP_NAME}"
+    </pre>
 
 ### Deployment
   * Jalankan `composer install`

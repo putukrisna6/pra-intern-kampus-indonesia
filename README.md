@@ -33,3 +33,8 @@
   * Jalankan `php artisan migrate`
   * Jalankan `php artisan db:seed --class=ProvinsiSeeder` jika ingin beberapa Provinsi sudah di-seed
   * Buka `http://prainternki.llc`
+
+### Extra
+  * Terdapat fitur blogging yang mengimplementasikan library `Canvas`
+  * Jalankan `php artisan canvas:install`
+  * Lalu jalankan `php artisan storage:link`
